@@ -26,8 +26,8 @@ You can execute the file **/deploy/dev_deploy.sh** to run the command below, or 
 
 Running the full stack version will also pull an execute the docker images for the API and React Frontend found at `meta-genome.org <https://meta-genome.org>`_.
 
-    - jac111/metag_flask_api 
-    - jac111/genome_front
+    - metagenomeorg/metag_flask_api 
+    - metagenomeorg/genome_front
 
 Terminating the Code
 --------------------
