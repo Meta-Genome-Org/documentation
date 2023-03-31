@@ -1,56 +1,104 @@
-`usnistgov/cdcs-docker <https://github.com/usnistgov/cdcs-docker>`_
+Installation
+************
+**NOTE: This guide describes installing and running only the CDCS/MDCS system for the Metagenome Project found when accessing:** `portal.meta-genome.org <https://portal.meta-genome.org>`_
 
-INSTALLATION
-============
-*NOTE: This file assumes that you have already installed Docker/Docker Compose.*
+Prerequisite Software
+=====================
 
-The original cdcs-docker repository that this project has been forked from can be found here: `usnistgov/cdcs-docker`_.
+Please install the Prerequisite software before continuing:
 
-Steps
------
-- Modify Configuration File
+- Docker
+- Docker-Compose
+
+You can find a link to download Docker for Windows `here. <https://docs.docker.com/desktop/install/windows-install/>`_
+
+For Linux users, you can use this command, or the equivalent for your relevant package manager:
+
+.. code-block:: console
+
+    sudo apt-get install docker docker-compose
+
+(Your distribution may vary.)
+
+Installation Steps
+===================
+
+The overarching steps to download, install and deploy are:
+
+- Clone the `meta-cdcs-docker <https://github.com/Meta-Genome-Org/meta-cdcs-docker>`_ repository.
+- Modify Configuration File (**/deploy/.env**)
 - Build the containers
 - Run the containers
 
-Configuration File
-------------------
+Clone meta-cdcs-docker
+----------------------
+Start by cloning the `meta-cdcs-docker <https://github.com/Meta-Genome-Org/meta-cdcs-docker>`_ repository from GitHub.
 
-Set your own values for the following in : **/deploy/.env**
+.. code-block:: console
 
-*NOTE: Avoid changing these values after setting. It is not too important exactly what the values are,
-but it is recommended that they are named reasonably.*
+    git clone https://github.com/Meta-Genome-Org/meta-cdcs-docker
 
-- MONGO_ADMIN_USER
-- MONGO_ADMIN_USER
-- MONGO_ADMIN_PASS
-- MONGO_USER
-- MONGO_PASS
-- MONGO_DB
-- POSTGRES_USER
-- POSTGRES_PASS
-- POSTGRES_DB
-- REDIS_PASS
-- DJANGO_SECRET_KEY
 
-Build and Run
---------------
-- In the **/build/** folder:
+Configuration Files
+-------------------
+Now, set the configuration from within the meta-cdcs-docker folder.
+
+**NOTE: You should not need to change any values in /build/.env**
+
+In **/deploy/.env**, set the following:
+
+    - HOSTNAME
+    - SERVER_URI
+    - ALLOWED_HOSTS
+
+**HOSTNAME & SERVER_URI**
+
+For this setting (local development), we are using the **192.168.X.X** that is output in the command:
+
+.. code-block:: console
+
+    hostname -I
+
+For local development, localhost (**127.0.0.1**) works.
+
+**ALLOWED_HOSTS:**
+
+For development, this value will likely be unchanged. But for deployment, it will likely be set to: *
+
+
+Credentials
+###########
+
+Next, set the credentials section within the **/deploy/.env** file.
+
+**NOTE: Please note down, and avoid changing these values after setting. It is not too important exactly what the values are,
+but it is recommended that they are named reasonably.**
+
+.. code-block:: console
+
+    - MONGO_ADMIN_USER
+    - MONGO_ADMIN_USER
+    - MONGO_ADMIN_PASS
+    - MONGO_USER
+    - MONGO_PASS
+    - MONGO_DB
+    - POSTGRES_USER
+    - POSTGRES_PASS
+    - POSTGRES_DB
+    - REDIS_PASS
+    - DJANGO_SECRET_KEY
+
+
+Building MDCS
+=============
+To build the system, run this command in the **/build/** folder:
 
 .. code-block:: console
 
     docker-compose build --no-cache
 
 
-- In the **/deploy/** folder:
+Next Steps
+==========
 
-.. code-block:: console
-
-    docker-compose up
-
-- Shutting Down:
-
-Run this command within the /deploy/ directory:
-
-.. code-block:: console
-
-    docker-compose down
+Please see the :doc:`deployment` section for help on how to deploy the system.

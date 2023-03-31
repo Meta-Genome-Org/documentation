@@ -1,22 +1,22 @@
-.. documentation documentation master file, created by
-   sphinx-quickstart on Fri Feb 17 10:30:37 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Documentation Home
+******************
+Welcome to the documentation repository for the `Meta-Genome-Org <https://github.com/Meta-Genome-Org>`_ GitHub organisation for the `Metagenome Project <https://meta-genome.org>`_.
 
-Welcome to documentation's documentation!
-=========================================
+Table of Contents
+=================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   self
+   about
    install
+   deployment
    development
-
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
