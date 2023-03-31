@@ -1,7 +1,7 @@
 # Overview
-https://metagenome-docs.readthedocs.io/
+ReadTheDocs: https://metagenome-docs.readthedocs.io/en/latest/
 
 # Flowchart and interactions between the respositories
 
 # Wiki
-The long version and details are explained in Wiki 
+--
